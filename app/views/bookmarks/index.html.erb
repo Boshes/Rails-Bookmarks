@@ -1,0 +1,29 @@
+<p id="notice"> <%= notice %></p>
+
+<h1>Listing bookmarks</h1>
+
+<table>
+      <% @categories.each do |category| %>
+        <thead>
+        <tr>
+      <th><%=category.name%></th>
+        </tr>
+        </thead>
+  <tbody>
+    <% Bookmark.all.each do |bookmark| %>
+  <%if bookmark.category_id == category.id %>
+      <tr>
+        <td><%= link_to bookmark.name, bookmark.url %></td>
+        <td><%= link_to 'Show', bookmark %></td>
+        <td><%= link_to 'Edit', edit_bookmark_path(bookmark) %></td>
+        <td><%= link_to 'Destroy', bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+    <%end%>
+
+    </table>
+<br>
+<%= link_to 'New Bookmark', new_bookmark_path %>
+          <%= link_to "New Category", new_category_path %>
