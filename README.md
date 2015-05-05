@@ -1,2 +1,2 @@
-# Ruby-Bookmarks
+# Rails-Bookmarks
 Bookmarks and Categories implementation
